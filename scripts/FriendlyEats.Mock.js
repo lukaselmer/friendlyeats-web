@@ -22,10 +22,7 @@ FriendlyEats.prototype.addMockRestaurants = function() {
   const promises = [];
 
   for (let i = 0; i < 20; i++) {
-    let name =
-        this.getRandomItem(this.data.words) +
-        ' ' +
-        this.getRandomItem(this.data.words);
+    let name = this.getRandomItem(this.data.words) + ' ' + this.getRandomItem(this.data.words);
     let category = this.getRandomItem(this.data.categories);
     let city = this.getRandomItem(this.data.cities);
     let price = Math.floor(Math.random() * 4) + 1;
@@ -60,10 +57,8 @@ FriendlyEats.prototype.addMockRestaurants = function() {
  */
 FriendlyEats.prototype.addMockRatings = function(restaurantID) {
   const ratingPromises = [];
-  for (let r = 0; r < 5*Math.random(); r++) {
-    const rating = this.data.ratings[
-      parseInt(this.data.ratings.length*Math.random())
-    ];
+  for (let r = 0; r < 5 * Math.random(); r++) {
+    const rating = this.data.ratings[parseInt(this.data.ratings.length * Math.random())];
     rating.userName = 'Bot (Web)';
     rating.timestamp = new Date();
     rating.userId = firebase.auth().currentUser.uid;

@@ -28,14 +28,18 @@ function FriendlyEats() {
 
   this.dialogs = {};
 
-  firebase.auth().signInAnonymously().then(() => {
-    this.initTemplates();
-    this.initRouter();
-    this.initReviewDialog();
-    this.initFilterDialog();
-  }).catch(err => {
-    console.log(err);
-  });
+  firebase
+    .auth()
+    .signInAnonymously()
+    .then(() => {
+      this.initTemplates();
+      this.initRouter();
+      this.initReviewDialog();
+      this.initFilterDialog();
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }
 
 /**
@@ -77,7 +81,10 @@ FriendlyEats.prototype.initRouter = function() {
 
 FriendlyEats.prototype.getCleanPath = function(dirtyPath) {
   if (dirtyPath.startsWith('/index.html')) {
-    return dirtyPath.split('/').slice(1).join('/');
+    return dirtyPath
+      .split('/')
+      .slice(1)
+      .join('/');
   } else {
     return dirtyPath;
   }
@@ -92,17 +99,7 @@ FriendlyEats.prototype.getRandomItem = function(arr) {
 };
 
 FriendlyEats.prototype.data = {
-  words: [
-    'Bar',
-    'Fire',
-    'Grill',
-    'Drive Thru',
-    'Place',
-    'Best',
-    'Spot',
-    'Prime',
-    'Eatin\''
-  ],
+  words: ['Bar', 'Fire', 'Grill', 'Drive Thru', 'Place', 'Best', 'Spot', 'Prime', "Eatin'"],
   cities: [
     'Albuquerque',
     'Arlington',
